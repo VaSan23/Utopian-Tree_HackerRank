@@ -1,0 +1,37 @@
+#include <assert.h>
+#include <limits.h>
+#include <math.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+int h_cal(int x)
+{
+    int m,high=0;
+    for(m=0;m<=x;m++)
+    {
+        if(m%2==0)
+            high++;
+        else
+            high+=high;
+    }
+    return high;
+}
+int main()
+{
+    int n;
+    printf("the number of test cases :"); 
+    scanf("%d",&n);
+    int test[n];
+    int i;
+    for(i=0;i<n;i++)
+    {
+        printf("Number of cycles for %d test case",i);
+        scanf("%d",&test[i]);
+    }
+    for(i=0;i<n;i++)
+    {
+        int height;
+        height=h_cal(test[i]);
+        printf("Height : %d\n",height);
+    }
+}
